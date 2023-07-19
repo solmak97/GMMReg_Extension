@@ -23,16 +23,15 @@ for 2D case we have :
 
 
 We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to spatial coordinate ($v$) as part of the attribute describing the nodes such that the  estimation becomes:
-
-$$
+```math
 \hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} 
-\exp\left(\frac{-\left\|T\left(v_1^{(i)} \right)  -v_2^{(s)}  \right\|^2}{4 \sigma^2}\right)\times \exp\left(\frac{-\|c^{(i)}_1 -c^{(s)}_2\|^2}{4 \sigma_c^2}\right)$$
-
+\exp\left(\frac{-\left\|T\left(v_1^{(i)} \right)  -v_2^{(s)}  \right\|^2}{4 \sigma^2}\right)\times \exp\left(\frac{-\|c^{(i)}_1 -c^{(s)}_2\|^2}{4 \sigma_c^2}\right)
+```
 ### Implementation
 The main code is  `gmmreg_Extenstion.py` utlizing following functions:
 #### **Pre-processing**
 We first normalize the datapoints with z score method. Then augment the class score vector to each point, for example : 
-$$
+```math
 \begin{bmatrix}
 
  X & Y & class0 & class1 & class3\\
@@ -40,7 +39,8 @@ $$
  x2 & y2 & 0 & 1 & 0\\
  x3 & y3 & 0 & 0 & 1\\
 
-\end{bmatrix}$$
+\end{bmatrix}
+```
  
 we assume that each point represents one class.For this example we have three datapoints associated with three classes.
 
