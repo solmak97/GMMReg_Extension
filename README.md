@@ -32,10 +32,10 @@ We first normalize the datapoints with z-score method. Then we augment the class
 ```math
 \begin{bmatrix}
 
- X & Y & class0 & class1 & class3\\
+ X & Y & class1 & class2 & class3\\
  x1 & y1 &1 & 0 &0 \\
  x2 & y2 & 0 & 1 & 0\\
- x3 & y3 & 0 & 0 & 1\\
+ x3 & y3 & 0 & 0 & 1
 \end{bmatrix}
 ```
  
