@@ -1,9 +1,9 @@
-# GMM pointset registaration with encoding class scores
+## GMM pointset registaration with encoding class scores
 This work focuses on reformulating point set registration using Gaussian Mixture Models while considering attributes associated with each point. Our approach introduces class score vectors as additional
 features to the spatial data information. By incorporating these attributes, we enhance the optimization pro-
 cess by penalizing incorrect matching terms.
 
-## Registration with GMMs
+### Registration with GMMs
 
  [Jian&Vemuri (2011)](https://www.researchgate.net/publication/224207506_Robust_Point_Set_Registration_Using_Gaussian_Mixture_Models) have proposed to estimate deformation $T$ between the **model** point sets $\mathcal{V}_1$  and the **scene** $\mathcal{V}_2$ by minimising the Euclidian distance ($L_2$ distance) between two Gaussian Mixtures Models (GMMs) fitted on each point set. Here rigid transformation (rotation, translation) is considered in $\mathbb{R}^2$, in which case the estimation of $T$ is performed as:
 
@@ -19,7 +19,7 @@ $$
 \hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} 
 \exp\left(\frac{-\left\|T\left(v_1^{(i)} \right)  -v_2^{(s)}  \right\|^2}{4 \sigma^2}\right)$$
 
-## Registration with class attributes
+### Registration with class attributes
 
 
 We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to spatial coordinate ($v$) as part of the attribute describing the nodes such that the  estimation becomes:
@@ -28,9 +28,9 @@ $$
 \hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} 
 \exp\left(\frac{-\left\|T\left(v_1^{(i)} \right)  -v_2^{(s)}  \right\|^2}{4 \sigma^2}\right)\times \exp\left(\frac{-\|c^{(i)}_1 -c^{(s)}_2\|^2}{4 \sigma_c^2}\right)$$
 
-## Implementation
+### Implementation
 The main code is  `gmmreg_Extenstion.py` utlizing following functions:
-### **Pre-processing**
+#### **Pre-processing**
 We first normalize the datapoints with z score method. Then augment the class score vector to each point, for example : 
 $$
 \begin{bmatrix}
@@ -44,7 +44,7 @@ $$
  
 we assume that each point represents one class.For this example we have three datapoints associated with three classes.
 
-### **transforms**
+#### **transforms**
 The affine transformation between shapes is defined by three basic transformations: rotation, translation and scaling. In the case of 2D shapes for instance, the latent variable
 to estimate can be defined by the following parameters :
 $$\theta = [t_1,t_2,\phi]$$ 
@@ -58,12 +58,11 @@ $$\mu_i(\theta) =\begin{pmatrix}
   t_2
 \end{pmatrix}   $$
 
-### **L2_objective**
+#### **L2_objective**
 To compute the L2 distance between the two Gaussian mixture  densities constructed from a '**model**' point set and a '**scene**' point set at a given 'scale'(sigma), we need to the inner product between two spherical Gaussian mixtures, computed using the Gauss Transform.The centers of the two mixtures are given in terms of two point sets A and B (of same dimension d)represented by an $m$ x $d$ matrix and an   $n$ x $d$ matrix, respectively.
 It is assumed that all the components have the same covariance matrix represented by a scale parameter (sigma). The inner products are implemented in `gauss_transform` function.
 
-To optimize the $L_2
-$ distance computing from `gauss_transform` function, simulating annealing with temperature parameter $\sigma$ (or scale) is used due to dact that for large $\sigma$s the $L_2$ distance tends to be non-convex. 
+To optimize the $L_2$ distance computing from `gauss_transform` function, simulating annealing with temperature parameter $\sigma$ (or scale) is used due to dact that for large $\sigma$s the $L_2$ distance tends to be non-convex. 
 
 
 
