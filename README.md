@@ -27,7 +27,7 @@ We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to
 ```
 ### Implementation
 The main code is  `gmmreg_Extenstion.py` utlizing following functions:
-#### **Pre-processing**
+- **Pre-processing**
 We first normalize the datapoints with z-score method. Then we augment the class score vector to each point, for example : 
 ```math
 \begin{bmatrix}
@@ -41,7 +41,7 @@ We first normalize the datapoints with z-score method. Then we augment the class
  
 We assume that each point represents one class.For this example we have three datapoints associated with three classes.
 
-#### **transforms**
+- **transforms**
 The affine transformation between shapes is defined by three basic transformations: rotation, translation and scaling. In the case of 2D shapes for instance, the latent variable
 to estimate can be defined by the following parameters :
 $$\theta = [t_1,t_2,\phi]$$ 
@@ -55,7 +55,7 @@ $$\mu_i(\theta) =\begin{pmatrix}
   t_2
 \end{pmatrix}   $$
 
-#### **L2_objective**
+- **L2_objective**
 To compute the L2 distance between the two Gaussian mixture  densities constructed from a '**model**' point set and a '**scene**' point set at a given 'scale'(sigma), we need to the inner product between two spherical Gaussian mixtures, computed using the Gauss Transform.The centers of the two mixtures are given in terms of two point sets A and B (of same dimension d)represented by an $m$ x $d$ matrix and an   $n$ x $d$ matrix, respectively.
 It is assumed that all the components have the same covariance matrix represented by a scale parameter (sigma). The inner products are implemented in `gauss_transform` function.
 
