@@ -25,7 +25,7 @@ We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to
 \hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} 
 \exp\left(\frac{-\left\|T\left(v_1^{(i)} \right)  -v_2^{(s)}  \right\|^2}{4 \sigma^2}\right)\times \exp\left(\frac{-\|c^{(i)}_1 -c^{(s)}_2\|^2}{4 \sigma_c^2}\right)
 ```
-### Implementation :+1:
+### Implementation :
 The main code is  `gmmreg_Extenstion.py` utlizing following functions:
 - **Pre-processing**
 We first normalize the datapoints with z-score method. Then we augment the class score vector to each point, for example : 
