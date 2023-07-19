@@ -20,8 +20,6 @@ for 2D case we have :
 ```
 
 ### Registration with class attributes
-
-
 We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to spatial coordinate ($v$) as part of the attribute describing the nodes such that the  estimation becomes:
 ```math
 \hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} 
@@ -30,7 +28,7 @@ We propose to extend the GMMreg by concatenating a class  vector (noted $c$)  to
 ### Implementation
 The main code is  `gmmreg_Extenstion.py` utlizing following functions:
 #### **Pre-processing**
-We first normalize the datapoints with z score method. Then augment the class score vector to each point, for example : 
+We first normalize the datapoints with z-score method. Then we augment the class score vector to each point, for example : 
 ```math
 \begin{bmatrix}
 
@@ -38,11 +36,10 @@ We first normalize the datapoints with z score method. Then augment the class sc
  x1 & y1 &1 & 0 &0 \\
  x2 & y2 & 0 & 1 & 0\\
  x3 & y3 & 0 & 0 & 1\\
-
 \end{bmatrix}
 ```
  
-we assume that each point represents one class.For this example we have three datapoints associated with three classes.
+We assume that each point represents one class.For this example we have three datapoints associated with three classes.
 
 #### **transforms**
 The affine transformation between shapes is defined by three basic transformations: rotation, translation and scaling. In the case of 2D shapes for instance, the latent variable
