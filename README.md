@@ -6,7 +6,7 @@ features to the spatial data information. By incorporating these attributes, we 
 
  [Jian&Vemuri (2011)](https://www.researchgate.net/publication/224207506_Robust_Point_Set_Registration_Using_Gaussian_Mixture_Models) have proposed to estimate deformation $T$ between the **model** point sets $\mathcal{V}_1$  and the **scene** $\mathcal{V}_2$ by minimising the Euclidian distance ($L_2$ distance) between two Gaussian Mixtures Models (GMMs) fitted on each point set. Here rigid transformation (rotation, translation) is considered in $\mathbb{R}^2$, in which case the estimation of $T$ is performed as:
 
-$$\hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} \mathcal{N}(0;T(v_1^{(i)}) -v_2^{(s)}, \Sigma)$$
+$`\hat{T}=\arg\max_{T} \sum_{i=1}^{|\mathcal{V}_1|}\sum_{s=1}^{|\mathcal{V}_2|} \mathcal{N}(0;T(v_1^{(i)}) -v_2^{(s)}, \Sigma)`$
 
 where $T$ is a transform function of parameter $\theta$ = $[t_1,t_2,\phi]$ representing the translation and rotation, $\mathcal{N}(x;\mu,\Sigma)$ indicates the normal distribution for random vector $x$ with mean $\mu$ and covariance $\Sigma$.\
  For simplicity,  we have chosen isotropic covariance $\Sigma=\sigma^2 \mathrm{I}_2$ in this work ($\mathrm{I}_2$ identity matrix in $\mathbb{R}^2$). \
