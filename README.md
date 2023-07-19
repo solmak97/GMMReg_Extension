@@ -38,8 +38,7 @@ We first normalize the datapoints with z-score method. Then we augment the class
  x3 & y3 & 0 & 0 & 1
 \end{bmatrix}
 ```
- 
-We assume that each point represents one class.For this example we have three datapoints associated with three classes.
+ We assume that each point represents one class.For this example we have three datapoints associated with three classes.
 
 - **transforms**
 The affine transformation between shapes is defined by three basic transformations: rotation, translation and scaling. In the case of 2D shapes for instance, the latent variable
@@ -58,7 +57,6 @@ $$\mu_i(\theta) =\begin{pmatrix}
 - **L2_objective**
 To compute the L2 distance between the two Gaussian mixture  densities constructed from a '**model**' point set and a '**scene**' point set at a given 'scale'(sigma), we need to the inner product between two spherical Gaussian mixtures, computed using the Gauss Transform.The centers of the two mixtures are given in terms of two point sets A and B (of same dimension d)represented by an $m$ x $d$ matrix and an   $n$ x $d$ matrix, respectively.
 It is assumed that all the components have the same covariance matrix represented by a scale parameter (sigma). The inner products are implemented in `gauss_transform` function.
-
 To optimize the $L_2$ distance computing from `gauss_transform` function, simulating annealing with temperature parameter $\sigma$ (or scale) is used due to the fact that for large $\sigma$s the $L_2$ distance tends to be non-convex. 
 
 
