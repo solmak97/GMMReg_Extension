@@ -57,7 +57,7 @@ $$\mu_i(\theta) =\begin{pmatrix}
 - **L2_objective**
 To compute the L2 distance between the two Gaussian mixture  densities constructed from a '**model**' point set and a '**scene**' point set at a given $\sigma$ (or scale), we need to the inner product between two spherical Gaussian mixtures, computed using the Gauss Transform.The centers of the two mixtures are given in terms of two point sets A and B (of same dimension d)represented by an $m$ x $d$ matrix and an   $n$ x $d$ matrix, respectively.
 It is assumed that all the components have the same covariance matrix represented by a scale parameter ($\sigma$). The inner products are implemented in `gauss_transform` function.
-To optimize the $L_2$ distance computing from `gauss_transform` function, simulating annealing with temperature parameter $\sigma$ is used due to the fact that for large $\sigma$s the $L_2$ distance tends to be non-convex. 
+To optimize the $L_2$ distance computing from `gauss_transform` function, simulating annealing with temperature parameter $\sigma$ is used due to the fact that for large $\sigma$ the $L_2$ distance tends to be non-convex. 
 
 
 
