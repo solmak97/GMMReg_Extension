@@ -1,7 +1,7 @@
 ## GMM pointset registaration with encoding class scores
 This work focuses on reformulating point set registration using Gaussian Mixture Models while considering attributes associated with each point. Our approach introduces class score vectors as additional
 features to the spatial data information. By incorporating these attributes, we enhance the optimization process by penalizing incorrect matching terms.
-See the paper[Improving GMM registration with class encoding](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://mural.maynoothuniversity.ie/17751/1/SP_improving.pdf)
+See the paper: [Improving GMM registration with class encoding](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://mural.maynoothuniversity.ie/17751/1/SP_improving.pdf)
 ### Registration with GMMs
 
  [Jian&Vemuri (2011)](https://www.researchgate.net/publication/224207506_Robust_Point_Set_Registration_Using_Gaussian_Mixture_Models) have proposed to estimate deformation $T$ between the **model** point sets $\mathcal{V}_1$  and the **scene** $\mathcal{V}_2$ by minimising the Euclidian distance ($L_2$ distance) between two Gaussian Mixtures Models (GMMs) fitted on each point set. Here rigid transformation (rotation, translation) is considered in $\mathbb{R}^2$, in which case the estimation of $T$ is performed as:
